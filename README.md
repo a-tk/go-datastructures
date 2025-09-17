@@ -13,13 +13,14 @@ Included structures:
 
 - **Binary Search Tree (BST)**
 - **B-Tree (in-memory only, configurable degree)**
+- **B-Tree stored on disk** - Not Complete
 - **Gap Buffer**
-- **Deque**
+- **Deque** - Not Complete
 - **Heap**
-- **k-d Tree**
-- **Circular Linked List**
-- **Single Linked List**
-- **Double Linked List**
+- **k-d Tree** - Not Complete
+- **Circular Linked List** - Not Complete
+- **Single Linked List** - Not Complete
+- **Double Linked List** - Not Complete
 - **LRU Cache**
 - **Queue**
 - **Red-Black Tree**
@@ -32,17 +33,22 @@ To build the project:
 
 ```bash
 go build ./...
+```
 
 To run the included tests:
 
-```
+
+```bash
 go test ./...
+```
 
-### Usage
+### Usage: BST
 
-import "datastructures/bst"
+```go
+package main
+import "github.com/a-tk/go-datastructures/bst"
 
-cmp := func(a, b int) int {
+func cmp(a, b int) int {
     if a < b {
         return -1
     } else if a > b {
@@ -51,25 +57,36 @@ cmp := func(a, b int) int {
     return 0
 }
 
-tree := bst.New[int, string](cmp)
-tree.Insert(5, "five")
-tree.Insert(2, "two")
-tree.Insert(7, "seven")
+func main() {
+    tree := bst.New[int, string](cmp)
+    tree.Insert(5, "five")
+    tree.Insert(2, "two")
+    tree.Insert(7, "seven")
+    
+    val, ok := tree.Search(2)
+    // val == "two", ok == true
+}
+```
 
-val, ok := tree.Search(2)
-// val == "two", ok == true
+### Usage: Trie
 
+```go
+package main 
 
-import "datastructures/trie"
+import "github.com/a-tk/go-datastructures/trie"
 
-t := trie.New()
-t.Insert("hello")
-t.Insert("hell")
-t.Insert("heaven")
+func main() {
+	t := trie.New()
+	t.AddWord("hello")
+	t.AddWord("hell")
+	t.AddWord("heaven")
 
-found := t.Search("hello") // true
-miss  := t.Search("hero")  // false
+	found := t.Search("hello") // true
+	miss  := t.Search("hero")  // false
+	
+}
 
+```
 
 Other structures can be imported similarly by their package path
 (e.g., datastructures/deque, datastructures/heap, datastructures/stack, etc.).

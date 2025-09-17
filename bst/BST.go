@@ -1,6 +1,6 @@
 package bst
 
-import "datastructures/stack"
+import "github.com/a-tk/go-datastructures/stack"
 
 type node[K any, V any] struct {
 	key     K
