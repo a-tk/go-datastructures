@@ -13,19 +13,23 @@ Included structures:
 
 - **Binary Search Tree (BST)**
 - **B-Tree (in-memory only, configurable degree)**
-- **B-Tree stored on disk** - Not Complete
 - **Gap Buffer**
-- **Deque** - Not Complete
 - **Heap**
-- **k-d Tree** - Not Complete
-- **Circular Linked List** - Not Complete
-- **Single Linked List** - Not Complete
-- **Double Linked List** - Not Complete
 - **LRU Cache**
 - **Queue**
 - **Red-Black Tree**
 - **Stack**
 - **Trie**
+
+Planned or incomplete data structures
+- **B-Tree stored on disk**
+- **Deque**
+- **k-d Tree**
+- **Circular Linked List**
+- **Single Linked List**
+- **Double Linked List**
+- **Rope**
+
 
 ## Compiling and Using
 
