@@ -155,6 +155,7 @@ func (b *BTree[K, V]) splitChild(x *node[K, V], i int) {
 	//remain aliased references
 	// nil out the keys and children of y (who had the top t values removed)
 	// note the relative position of the keys and the children (draw a picture is helpful)
+	// TODO: use case for weak pointers? Go 1.23
 	for i := y.n; i < 2*b.degree-1; i++ {
 		y.keys[i].valptr = nil
 		y.children[i+1] = nil
