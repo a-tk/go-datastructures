@@ -40,3 +40,23 @@ func (g *GraphAutomata[K, W]) GetTransition(u K, w W) (v K, ok bool) {
 	}
 	return v, ok
 }
+
+func (g *GraphAutomata[K, W]) GetTransitionsW(u K) (ws []W, ok bool) {
+	m, ok := g.states[u]
+	if ok { // state exists
+		for w, _ := range m {
+			ws = append(ws, w)
+		}
+	}
+	return ws, ok
+}
+
+func (g *GraphAutomata[K, W]) GetTransitionsStates(u K) (ks []K, ok bool) {
+	m, ok := g.states[u]
+	if ok { // state exists
+		for _, k := range m {
+			ks = append(ks, k)
+		}
+	}
+	return ks, ok
+}
