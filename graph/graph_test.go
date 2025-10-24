@@ -27,4 +27,9 @@ func Test_NewGraph(t *testing.T) {
 	g.AddTransition(0, 3, "s")
 	g.AddTransition(3, 4, "h")
 	g.AddTransition(4, 5, "e")
+
+	got, ok := g.GetTransition(0, "h")
+	if !ok || got != 1 {
+		t.Errorf("fail, should transition to state 1, got=%d, ok=%t", got, ok)
+	}
 }
